@@ -1,0 +1,24 @@
+class Solution {
+    public int findLucky(int[] arr) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map2 = new HashMap<>();
+int maxvalue = 0;
+
+        for(int i:arr){
+            map.put(i, map.getOrDefault(i,0)+1);
+        }
+
+                for(Map.Entry<Integer, Integer> n:map.entrySet()){
+ if(n.getKey().equals(n.getValue())){
+map2.put(n.getKey(),n.getValue());
+            }
+      }
+      if (map2.isEmpty()) {
+    maxvalue = -1;
+} else {
+    maxvalue = Collections.max(map2.keySet());
+}
+      return maxvalue;
+    }
+}
