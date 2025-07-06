@@ -1,0 +1,18 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        HashMap<Integer,Integer> position = new HashMap<>();
+int result=0;
+        for(int i=0; i<nums.length;i++){
+            position.put(i,nums[i]);
+
+if(nums[i]==target){
+result=i;
+}
+if(!position.containsValue(target))
+{
+result = -1;
+}
+        }
+        return result;
+    }
+}
