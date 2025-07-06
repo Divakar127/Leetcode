@@ -1,0 +1,46 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        HashMap<Integer, Integer> position =new HashMap<>();
+
+        int [] result={0,0};
+        boolean start=false;
+        boolean end=false;
+
+        for(int i=0;i < nums.length;i++){
+            position.put(i,nums[i]);
+            if(nums.length==1 && nums[i]==target){
+                result[0]=i;
+                                result[1]=i;
+
+            }
+            if(nums[i]==target && nums.length>=2){
+                if(!start){
+                    result[0]=i;
+start=true;
+                }
+                else{
+                    result[1]=i;
+                }
+                
+            }
+
+            
+        }
+
+        if(result[0]!=-1 && result[1]== -1){
+            result[1]=result[0];
+        }
+
+        if(result[1] < result[0]){
+            result[1]=result[0];
+        }
+
+if(!position.containsValue(target)){
+    result[0]=-1;
+        result[1]=-1;
+
+}
+
+       return result; 
+    }
+}
